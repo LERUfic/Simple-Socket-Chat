@@ -3,12 +3,12 @@ Using python
 
 Program sederhana untuk chatting dan transfer file
 
-##Fungsionalitas
+## Fungsionalitas
 Program ini harus bisa:
 - [x] Mengirim pesan biasa dan di broadcast ke semua clients
 - [x] Bisa mengirim file dengan perintah SEND minimal 3MB 
 
-###HASIL
+### HASIL
 1. Mengirim pesan biasa berhasil
 ![hasil1](/images/hasil1.png)
 2. Berhasil mengirim file dengan nama _See-Saw.mp3_ (11.5MB) dan muncul pada client2 dengan nama _terima_See-Saw.mp3_. Client 1 dan 2 juga masih bisa saling berkomunikasi tanpa ada error.
@@ -16,9 +16,9 @@ Program ini harus bisa:
 ![hasilclient2](/images/hasilclient2.png)
 ![masihbisa](/images/masihbisa.png)
 
-##Penjelasan Code
+## Penjelasan Code
 
-###Server (chat.py)
+### Server (chat.py)
 ```python
 def clientthread(conn, addr):
 	while True:
@@ -58,7 +58,7 @@ Pada tahap selanjutnya pesan akan dibedakan menjadi 2 yaitu pesan dengan kata **
 Pesan dengan SEND akan menerima pesan yang pertama yaitu adalah pesan yang berisi commandnya. Dari pesan tersebut akan diambil nama filenya lalu dibuka dan diisi dengan data yang diterima berikutnya yaitu data file yang dikirim. Kami menggunakan wb karena data yang server terima berupa tulisan binary. Server akan mencari string **//AGUEL//TAMTAM//** jika ada string tersebut artinya file sudah terkirim semua dan berikutnya keluar dari while. Semua pesan yang diterima oleh server akan dikirimkan kembali ke client-client untuk dibuat filenya pada masing-masing client.
 Pesan yang tidak memiliki send akan dikirim langsung ke semua client karena hanya berupa pesan biasa.
 
-###Client (chatclient.py)
+### Client (chatclient.py)
 ```python
 while True:
 	sockets_list = [sys.stdin, server]
