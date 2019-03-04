@@ -1,7 +1,9 @@
 # Simple-Socket-Chat
-Using python
+Anggota Kelompok:
 
-Program sederhana untuk chatting dan transfer file
+__IBRAHIM TAMTAMA ADI		05111640000018__
+
+__AGUEL SATRIA WIJAYA		05111640000056__
 
 ## Fungsionalitas
 Program ini harus bisa:
@@ -10,11 +12,11 @@ Program ini harus bisa:
 
 ### HASIL
 1. Mengirim pesan biasa berhasil
-![hasil1](/images/hasil1.png)
+![hasil1](images/hasil1.png)
 2. Berhasil mengirim file dengan nama _See-Saw.mp3_ (11.5MB) dan muncul pada client2 dengan nama _terima_See-Saw.mp3_. Client 1 dan 2 juga masih bisa saling berkomunikasi tanpa ada error.
-![commandsend](/images/commandsend.png)
-![hasilclient2](/images/hasilclient2.png)
-![masihbisa](/images/masihbisa.png)
+![commandsend](images/commandsend.png)
+![hasilclient2](images/hasilclient2.png)
+![masihbisa](images/masihbisa.png)
 
 ## Penjelasan Code
 
