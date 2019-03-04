@@ -54,8 +54,11 @@ def clientthread(conn, addr):
 ```
 
 Pertama server akan menerima pesan dari client. Pesan jika pesan ada isinya maka akan dilanjutkan ke tahap berikutnya namun jika tidak maka data client akan dihapus dari list_of_clients.
+
 Pada tahap selanjutnya pesan akan dibedakan menjadi 2 yaitu pesan dengan kata **SEND** didalamnya dan pesan tanpa SEND.
+
 Pesan dengan SEND akan menerima pesan yang pertama yaitu adalah pesan yang berisi commandnya. Dari pesan tersebut akan diambil nama filenya lalu dibuka dan diisi dengan data yang diterima berikutnya yaitu data file yang dikirim. Kami menggunakan wb karena data yang server terima berupa tulisan binary. Server akan mencari string **//AGUEL//TAMTAM//** jika ada string tersebut artinya file sudah terkirim semua dan berikutnya keluar dari while. Semua pesan yang diterima oleh server akan dikirimkan kembali ke client-client untuk dibuat filenya pada masing-masing client.
+
 Pesan yang tidak memiliki send akan dikirim langsung ke semua client karena hanya berupa pesan biasa.
 
 ### Client (chatclient.py)
@@ -103,4 +106,5 @@ server.close()
 ```
 
 Pada clients socket dibagi menjadi 2 hal yaitu socket yang mengirim dan socket yang menerima pesan. Pada socks yang menerima pesan, pesan akan dibagi jadi 2 sama seperti pada server yaitu pesan dengan SEND dan tanpa SEND. Pesan tanpa SEND akan langsung di print dan pesan dengan SEND akan diproses untuk dibuat filenya. Algoritma yang digunakan ketika pembentukan file adalah sama dengan yang ada di server.
+
 Pada socks yang mengirim pesan juga dibagi jadi 2 yaitu pesan dengan SEND dan tanpa SEND. Pesan dengan send akan dibaca ngan rb (secara binary) dan dikirim perline ke server. Jika sudah selesai maka akan diakhiri dengan string *//AGUEL//TAMTAM//* dan dikirimkan ke server agar server tahu bahwa proses pengiriman telah selesai. Sedangkan pesan tanpa SEND akan langsung dikirimkan secara langsung ke server.
